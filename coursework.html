@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academic Coursework — Ariv Vaidya</title>
+  <meta name="description" content="IB subjects, Extended Essay (EE), Internal Assessments (IAs), and TOK Exhibition with context and PDFs." />
+  <meta property="og:title" content="Academic Coursework — Ariv Vaidya" />
+  <meta property="og:description" content="HL/SL subjects plus EE, IA write-ups, and TOK Exhibition with short context and PDFs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/profile1.jpg" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Perf hints -->
+  <link rel="preload" as="image" href="images/profile1.jpg" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","system-ui","-apple-system","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
+          colors: { brand: { DEFAULT: "#2563eb", dark: "#1d4ed8", soft: "#60a5fa" } },
+          boxShadow: { soft: "0 12px 30px rgba(0,0,0,0.08)" }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    :focus { outline: none; }
+
+    /* Header above everything */
+    header.site-header { position: sticky; top: 0; z-index: 9999; }
+    #mobileNav { z-index: 10000; position: relative; }
+
+    /* Dotted background like Home/Research */
+    .bg-dots { position: relative; overflow: hidden; }
+    .bg-dots::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 1px 1px, rgba(2,6,23,0.08) 1px, transparent 1px) 0 0/18px 18px;
+      pointer-events: none;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.06));
+    }
+
+    /* Wide PDF viewer (used inside IA cards) */
+    .embed {
+      position: relative; width: 100%; height: 70vh;
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06); overflow: hidden;
+    }
+    .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Centered, narrower document frame (EE + TOK) */
+    .doc-embed {
+      position: relative; width: 100%; max-width: 900px; height: 62vh;
+      margin: 0 auto; background: #f8fafc; border: 1px solid #e2e8f0;
+      border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); overflow: hidden;
+    }
+    .doc-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Section rhythm */
+    .section { padding: 3.5rem 0; }
+
+    /* Card */
+    .card { border: 1px solid #e2e8f0; border-radius: 16px; background:#fff; box-shadow: 0 12px 30px rgba(0,0,0,.06); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand/15">
+
+  <!-- Header -->
+  <header class="site-header backdrop-blur bg-white/85 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-18 py-2">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/profile1.jpg" alt="Ariv headshot" class="w-11 h-11 rounded-full object-cover"
+               style="object-position:center 20%;" loading="lazy" decoding="async" />
+          <span class="font-semibold tracking-tight text-xl">Ariv Vaidya</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
+          <a class="hover:text-brand" href="index.html">Home</a>
+          <a class="hover:text-brand" href="research.html">Research</a>
+          <a class="hover:text-brand" href="resume.html">Resume</a>
+          <a class="hover:text-brand" href="hobbies.html">Hobbies</a>
+          <a class="hover:text-brand" href="coursework.html">School Coursework</a>
+          <a class="hover:text-brand" href="contact.html">Contact</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden p-3 rounded-lg hover:bg-slate-100" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+            <path d="M3.75 5.25h16.5v1.5H3.75zM3.75 11.25h16.5v1.5H3.75zM3.75 17.25h16.5v1.5H3.75z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-2 gap-4 text-base font-medium">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro + Subjects (dotted) -->
+  <section class="section bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative">
+      <h1 class="text-4xl font-bold">Academic Coursework (IB)</h1>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        I’m completing the International Baccalaureate (IB) Diploma Programme. It balances depth and breadth and includes major written components.
+        Below are my subjects, Extended Essay (EE), Internal Assessments (IAs), and TOK Exhibition with short context and links to the full write-ups.
+      </p>
+
+      <!-- HL / SL -->
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="card p-5">
+          <div class="text-slate-500 text-sm font-semibold">Higher Level (HL)</div>
+          <ul class="mt-2 list-disc list-inside text-slate-800">
+            <li>Biology (EE topic)</li>
+            <li>Chemistry</li>
+            <li>Mathematics: Applications &amp; Interpretation (AI)</li>
+          </ul>
+        </div>
+        <div class="card p-5">
+          <div class="text-slate-500 text-sm font-semibold">Standard Level (SL)</div>
+          <ul class="mt-2 list-disc list-inside text-slate-800">
+            <li>Environmental Systems &amp; Societies (ESS)</li>
+            <li>Spanish</li>
+            <li>English Language &amp; Literature</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extended Essay (EE) (white) -->
+  <section id="ee" class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-start gap-8">
+        <div class="flex-1">
+          <h2 class="text-2xl sm:text-3xl font-semibold">Extended Essay (EE) — Biology</h2>
+          <p class="mt-3 text-slate-700">
+            The Extended Essay is a <strong>~4,000-word</strong> independent research paper. You frame a focused question, choose methods,
+            analyze data/arguments, and discuss limits and next steps. Building on work from the Khurana Lab, I examined how markers of
+            Parkinson’s progression change over time.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="assets/EE.pdf" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Open Extended Essay PDF in a new tab">
+              Open PDF
+            </a>
+            <a href="assets/EE.pdf" download
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Download Extended Essay PDF">
+              Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Centered, smaller EE viewer -->
+      <div class="mt-6 doc-embed">
+        <iframe src="assets/EE.pdf" title="Extended Essay (Biology) PDF" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOK Exhibition (dotted) -->
+  <section class="section bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Theory of Knowledge (TOK) — Exhibition</h2>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        The TOK Exhibition connects a <em>knowledge question</em> to the real world using three selected objects. The commentary explains how each
+        object illustrates ways of knowing (like perception, language, emotion, reason) and touches on scope, methods, and ethics of knowledge.
+        Below is my exhibition write-up with object justifications and links to the core theme.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href="assets/tok.pdf" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Open TOK Exhibition PDF in a new tab">
+          Open TOK PDF
+        </a>
+        <a href="assets/tok.pdf" download
+           class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Download TOK Exhibition PDF">
+          Download
+        </a>
+      </div>
+
+      <!-- Centered, smaller TOK viewer -->
+      <div class="mt-6 doc-embed">
+        <iframe src="assets/tok.pdf" title="TOK Exhibition PDF" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- IAs intro (dotted) -->
+  <section id="ias" class="section bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Internal Assessments (IAs)</h2>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        IAs are subject investigations completed during the course. Each IA is a structured report (about <strong>~3,000 words</strong>) that includes
+        a clear rationale, methods, data analysis, evaluation of uncertainty/limitations, and conclusions linked to the syllabus.
+        Below are my science IAs and the current Math IA status.
+      </p>
+    </div>
+  </section>
+
+  <!-- IA Cards (white) -->
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Biology IA -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-xl font-semibold">Biology IA</h3>
+          <p class="mt-2 text-slate-700">
+            A focused biology investigation with defined variables, controlled methods, processed data, and a critical look at reliability and improvements.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="assets/Bio_ia.pdf" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Open Biology IA PDF in a new tab">
+              Open PDF
+            </a>
+            <a href="assets/Bio_ia.pdf" download
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Download Biology IA PDF">
+              Download
+            </a>
+          </div>
+          <div class="mt-5 embed">
+            <iframe src="assets/Bio_ia.pdf" title="Biology IA PDF" loading="lazy"></iframe>
+          </div>
+        </article>
+
+        <!-- Chemistry IA -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-xl font-semibold">Chemistry IA</h3>
+          <p class="mt-2 text-slate-700">
+            An inquiry in chemistry that justifies technique choices, handles data carefully, and treats error/uncertainty in line with theory.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="assets/Chem_ia.pdf" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Open Chemistry IA PDF in a new tab">
+              Open PDF
+            </a>
+            <a href="assets/Chem_ia.pdf" download
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Download Chemistry IA PDF">
+              Download
+            </a>
+          </div>
+          <div class="mt-5 embed">
+            <iframe src="assets/Chem_ia.pdf" title="Chemistry IA PDF" loading="lazy"></iframe>
+          </div>
+        </article>
+
+        <!-- ESS IA -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-xl font-semibold">ESS IA</h3>
+          <p class="mt-2 text-slate-700">
+            An environmental investigation that blends scientific method with systems thinking and real-world context; conclusions consider sustainability impacts.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="assets/ESS_ia.pdf" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Open ESS IA PDF in a new tab">
+              Open PDF
+            </a>
+            <a href="assets/ESS_ia.pdf" download
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark" aria-label="Download ESS IA PDF">
+              Download
+            </a>
+          </div>
+          <div class="mt-5 embed">
+            <iframe src="assets/ESS_ia.pdf" title="ESS IA PDF" loading="lazy"></iframe>
+          </div>
+        </article>
+      </div>
+
+      <!-- Math IA status row -->
+      <div class="mt-8 grid lg:grid-cols-3 gap-8">
+        <article class="card p-6">
+          <h3 class="text-xl font-semibold">Math IA (AI HL)</h3>
+          <p class="mt-2 text-slate-700">
+            In progress — I’ll add the full write-up here once it’s finalized.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-slate-600">
+      <span>© <span id="year"></span> Ariv Vaidya</span>
+      <nav class="flex gap-4">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

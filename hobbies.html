@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hobbies — Ariv Vaidya</title>
+  <meta name="description" content="Music, tennis, community service, and leadership." />
+  <meta property="og:title" content="Hobbies — Ariv Vaidya" />
+  <meta property="og:description" content="Classical guitar & composition, varsity tennis, community service, and leadership." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/profile1.jpg" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Perf hints -->
+  <link rel="preload" as="image" href="images/profile1.jpg" />
+  <link rel="preload" as="image" href="images/tennis-team2.png" />
+  <link rel="preload" as="image" href="images/president.jpg" />
+  <link rel="preload" as="image" href="images/guitar.jpg" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","system-ui","-apple-system","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
+          colors: { brand: { DEFAULT:"#2563eb", dark:"#1d4ed8", soft:"#60a5fa" } },
+          boxShadow: { soft:"0 12px 30px rgba(0,0,0,0.08)" }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    :focus { outline: none; }
+
+    header.site-header { position: sticky; top: 0; z-index: 9999; }
+    #mobileNav { z-index: 10000; position: relative; }
+
+    .bg-dots {
+      background-color: #f8fafc;
+      background-image:
+        radial-gradient(#e2e8f0 1px, transparent 1px),
+        radial-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 24px 24px, 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    .card {
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      padding: 1.75rem;
+    }
+
+    .media-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Video embed with thumbnail + overlay progress */
+    .lazy-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    }
+    .lazy-embed .placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: #000;
+      transition: opacity .3s ease;
+    }
+    .lazy-embed .placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.92) contrast(1.02);
+    }
+    /* Keep face visible for President thumb */
+    .lazy-embed .thumb-top {
+      object-position: top center !important; /* <— force top-anchor */
+    }
+
+    /* Overlay progress card */
+    .lazy-embed .overlay {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      gap: .6rem;
+      padding: .9rem 1rem;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .overlay .percent { font-weight: 700; letter-spacing: 0.3px; }
+    .overlay .bar {
+      width: min(560px, 76vw);
+      height: 10px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.24);
+      overflow: hidden;
+    }
+    .overlay .fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg,#93c5fd,#2563eb);
+      transition: width .2s ease;
+    }
+    .overlay .hint { font-size: .85rem; opacity: .95; }
+
+    .lazy-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      opacity: 0;
+      transition: opacity .3s ease;
+      background: #000;
+    }
+    .lazy-embed.is-loaded .placeholder { opacity: 0; pointer-events: none; }
+    .lazy-embed.is-loaded iframe { opacity: 1; }
+  </style>
+</head>
+
+<body class="bg-white text-slate-800 antialiased selection:bg-brand/15">
+
+  <!-- Header -->
+  <header class="site-header backdrop-blur bg-white/85 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-18 py-2">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/profile1.jpg" alt="Ariv headshot" class="w-11 h-11 rounded-full object-cover"
+               style="object-position:center 20%;" loading="lazy" decoding="async" />
+          <span class="font-semibold tracking-tight text-xl">Ariv Vaidya</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
+          <a class="hover:text-brand" href="index.html">Home</a>
+          <a class="hover:text-brand" href="research.html">Research</a>
+          <a class="hover:text-brand" href="resume.html">Resume</a>
+          <a class="hover:text-brand" href="hobbies.html">Hobbies</a>
+          <a class="hover:text-brand" href="coursework.html">School Coursework</a>
+          <a class="hover:text-brand" href="contact.html">Contact</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden p-3 rounded-lg hover:bg-slate-100" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+            <path d="M3.75 5.25h16.5v1.5H3.75zM3.75 11.25h16.5v1.5H3.75zM3.75 17.25h16.5v1.5H3.75z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-2 gap-4 text-base font-medium">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Title -->
+  <section class="bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <h1 class="text-4xl font-bold">Hobbies</h1>
+      <p class="mt-3 max-w-2xl text-slate-700">
+        A look at what I do outside academics — music, athletics, service, and leadership.
+      </p>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Music</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <article class="card">
+          <h3 class="font-semibold">Classical Guitar</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            I’ve studied classical guitar for 9 years, performing at 15+ local recitals and school events,
+            plus sets at bookstores and other venues. I’ve also performed at 5+ senior living centers.
+          </p>
+          <ul class="mt-3 list-disc list-inside text-sm text-slate-700 space-y-1">
+            <li><b>2023–2025:</b> Three-time BISB Best Musician of the Year</li>
+            <li><b>2024:</b> 3rd place — Nord Anglia (NAE) global music competition</li>
+            <li><b>2023:</b> Gold medal — Brookline Music School Honors Evaluation (Strings)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3 class="font-semibold">Composition</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            In 9th–10th grade music I wrote two short pieces; both are in the portfolio below alongside performance clips.
+          </p>
+        </article>
+      </div>
+
+      <div class="mt-8 flex flex-col items-center gap-4">
+        <!-- Music portfolio embed (unchanged) -->
+        <div class="lazy-embed w-full md:w-3/4 lg:w-2/3"
+             data-src="https://drive.google.com/file/d/1AY1OiNqM7AgD5y4v3w59bQ3nuIi70PHb/preview"
+             data-thumb="images/guitar.jpg"
+             data-thumb-pos="center"
+             aria-label="Music portfolio video">
+          <div class="placeholder">
+            <img src="images/guitar.jpg" alt="Classical guitar thumbnail">
+            <div class="overlay">
+              <div class="percent" data-percent>0%</div>
+              <div class="bar"><div class="fill" data-fill></div></div>
+              <div class="hint">Loading video…</div>
+            </div>
+          </div>
+        </div>
+        <a href="https://drive.google.com/file/d/1AY1OiNqM7AgD5y4v3w59bQ3nuIi70PHb/view?usp=share_link"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark">
+          Open Full Music Portfolio
+        </a>
+        <p class="text-xs text-slate-500">This video includes both performances and original compositions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENNIS -->
+  <section id="tennis" class="py-12 bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Tennis</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center mt-6">
+        <article class="card p-7 order-2 md:order-1">
+          <p class="text-sm text-slate-700 leading-relaxed">
+            As captain of the varsity team, I organized after-school practices and set match strategies for singles and doubles.
+            We went undefeated and won our league championship. Earlier, I trained at
+            <b>Sportsmen’s Tennis &amp; Enrichment Center</b> and competed with a
+            <b>UTR of 5.55</b>.
+          </p>
+        </article>
+        <div class="order-1 md:order-2">
+          <div class="media-frame shadow-soft">
+            <img src="images/tennis-team2.png" alt="Varsity tennis — Ariv playing"
+                 loading="lazy" decoding="async" sizes="(min-width: 768px) 50vw, 100vw" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY SERVICE -->
+  <section id="service" class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Community Service</h2>
+
+      <div class="grid md:grid-cols-2 gap-8 mt-6">
+        <article class="card p-7">
+          <div class="flex items-start gap-7">
+            <img src="images/ata.png" alt="Alexander Twilight Academy logo"
+                 class="w-28 h-28 object-contain rounded-xl border border-slate-200 bg-white shadow-sm"
+                 loading="lazy" decoding="async" />
+            <div>
+              <h3 class="font-semibold text-lg">Alexander Twilight Academy</h3>
+              <p class="mt-2 text-sm text-slate-700 leading-relaxed">
+                ATA supports high-potential students from under-resourced backgrounds. As a <b>Math Teaching Assistant</b>,
+                I created practice materials, taught lessons, and ran small-group breakouts with 6th graders to work through problems step by step.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card p-7">
+          <div class="flex items-start gap-7">
+            <img src="images/vav.png" alt="Volley Against Violence logo"
+                 class="w-28 h-28 object-contain rounded-xl border border-slate-200 bg-white shadow-sm"
+                 loading="lazy" decoding="async" />
+            <div>
+              <h3 class="font-semibold text-lg">Volley Against Violence</h3>
+              <p class="mt-2 text-sm text-slate-700 leading-relaxed">
+                A program that connects local youth and police through tennis. I assisted coaches, set up courts and equipment, led drills,
+                and spent time talking with students during activities.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership" class="py-12 bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Leadership</h2>
+
+      <!-- Row 1 -->
+      <div class="grid md:grid-cols-2 gap-8 mt-6">
+        <article class="card p-7 md:p-8">
+          <div class="flex items-start gap-7">
+            <img src="images/president.jpg" alt="Class President"
+                 class="w-40 h-40 object-cover rounded-2xl border border-slate-200 shadow-sm"
+                 loading="lazy" decoding="async" />
+            <div>
+              <h3 class="font-semibold text-lg">Class President — BISB</h3>
+              <p class="mt-2 text-sm text-slate-700 leading-relaxed">
+                Elected by students and staff. Candidates created campaign videos (mine is below). I speak at assemblies,
+                lead student council initiatives, and represent our school at events.
+              </p>
+            </div>
+          </div>
+          <div class="mt-5">
+            <!-- President video with top-aligned thumbnail -->
+            <div class="lazy-embed mx-auto"
+                 data-src="https://drive.google.com/file/d/1KkFBN6uPOr6yFAbagfTzvbPpD7eAD9qg/preview"
+                 data-thumb="images/president.jpg"
+                 data-thumb-pos="top"
+                 aria-label="Class President campaign video">
+              <div class="placeholder">
+                <img src="images/president.jpg" alt="Class President thumbnail" class="thumb-top">
+                <div class="overlay">
+                  <div class="percent" data-percent>0%</div>
+                  <div class="bar"><div class="fill" data-fill></div></div>
+                  <div class="hint">Loading video…</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card p-7">
+          <div class="flex items-start gap-7">
+            <img src="images/current_events.jpg" alt="Current Events Club"
+                 class="w-40 h-40 object-cover rounded-2xl border border-slate-200 shadow-sm"
+                 loading="lazy" decoding="async" />
+            <div>
+              <h3 class="font-semibold text-lg">Current Events Club — Founder</h3>
+              <p class="mt-2 text-sm text-slate-700 leading-relaxed">
+                I set up a program for middle and high school students to write and debate contemporary issues—politics, environment,
+                technology, and economics. We’ve published 50+ articles in the school paper. This year I’m
+                <b>Head of the Bulldog Inquirer</b>, leading publication and supporting the editorial team on a site with 200+ articles.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="grid md:grid-cols-3 gap-8 mt-8">
+        <article class="card p-7 md:p-8">
+          <h3 class="font-semibold text-lg">Science &amp; MIT Ambassador</h3>
+          <p class="mt-2 text-sm text-slate-700 leading-relaxed">
+            I helped run activities at the Cambridge Science Festival and led hands-on demos for younger students. I also contributed to
+            MIT outreach content and collaborated with MIT PhD students on testing camera kits for tracking the aurora borealis.
+          </p>
+        </article>
+
+        <article class="card p-7 md:p-8">
+          <h3 class="font-semibold text-lg">Peer Mentor</h3>
+          <p class="mt-2 text-sm text-slate-700 leading-relaxed">
+            Support younger students as they transition into high school—planning homework, sharing study tips and resources,
+            and checking in on progress.
+          </p>
+        </article>
+
+        <article class="card p-7 md:p-8">
+          <h3 class="font-semibold text-lg">Admissions Representative</h3>
+          <p class="mt-2 text-sm text-slate-700 leading-relaxed">
+            Represent BISB during open houses and tours. Welcome visiting families, answer questions, and help new students
+            get oriented on their first day.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-slate-600">
+      <span>© <span id="year"></span> Ariv Vaidya</span>
+      <nav class="flex gap-4">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // -------- Lazy video loader (visible overlay progress) --------
+    function loadEmbed(el) {
+      if (el.dataset.loaded) return; // prevent double-load
+      el.dataset.loaded = "true";
+
+      const src = el.getAttribute('data-src');
+      const fill = el.querySelector('[data-fill]');
+      const pct  = el.querySelector('[data-percent]');
+      const hint = el.querySelector('.hint');
+
+      // Simulate progress until iframe 'load'
+      let p = 0;
+      const progressTimer = setInterval(() => {
+        p += Math.random() * 5 + 2;
+        if (p > 92) p = 92; // stop early; finish on real load
+        fill.style.width = p + '%';
+        pct.textContent = Math.round(p) + '%';
+      }, 180);
+
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('allow', 'autoplay');
+      iframe.src = src;
+
+      iframe.addEventListener('load', () => {
+        clearInterval(progressTimer);
+        hint.textContent = 'Ready';
+        let fin = p;
+        const finTimer = setInterval(() => {
+          fin += 3.5;
+          if (fin >= 100) {
+            fin = 100;
+            clearInterval(finTimer);
+            fill.style.width = '100%';
+            pct.textContent = '100%';
+            setTimeout(() => el.classList.add('is-loaded'), 200);
+          } else {
+            fill.style.width = fin + '%';
+            pct.textContent = Math.round(fin) + '%';
+          }
+        }, 60);
+      });
+
+      el.appendChild(iframe);
+    }
+
+    // Use IntersectionObserver if available
+    const embeds = Array.from(document.querySelectorAll('.lazy-embed'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            loadEmbed(entry.target);
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '200px 0px' });
+      embeds.forEach(el => io.observe(el));
+    } else {
+      // Fallback: load on first user interaction or after short delay
+      const kick = () => {
+        embeds.forEach(loadEmbed);
+        window.removeEventListener('scroll', kick);
+        window.removeEventListener('click', kick);
+      };
+      window.addEventListener('scroll', kick, { passive: true });
+      window.addEventListener('click', kick);
+      setTimeout(kick, 1200);
+    }
+
+    // Also allow manual click on the thumbnail to start immediately
+    embeds.forEach(el => {
+      el.addEventListener('click', () => loadEmbed(el), { once: true });
+    });
+
+    // Ensure the President thumb keeps face visible (top)
+    document.querySelectorAll('.lazy-embed[data-thumb-pos="top"] img').forEach(img => {
+      img.classList.add('thumb-top');
+    });
+  </script>
+</body>
+</html>

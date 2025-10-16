@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leadership – Ariv Vaidya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #e8f0ff, #f5faff);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    nav {
+      background-color: white;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 16px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #003366;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #0055aa;
+    }
+    header {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-top: 30px;
+      color: #003366;
+    }
+    .container {
+      max-width: 1100px;
+      width: 100%;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    /* Class President Box */
+    .class-president {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .class-president h2 {
+      font-size: 1.8rem;
+      color: #003366;
+      font-weight: 700;
+      text-align: center;
+    }
+    .class-president-content {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .class-president-content img {
+      width: 250px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .class-president-text {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* Other Leadership Box */
+    .other-leadership {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+    }
+    .other-leadership h2 {
+      font-size: 1.8rem;
+      color: #003366;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .other-leadership ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .class-president-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .class-president-content img {
+        width: 100%;
+        max-width: 300px;
+      }
+      .class-president-text {
+        margin-top: 20px;
+      }
+      .other-leadership ul {
+        margin-left: 10px;
+        padding-left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="resume.html">Resume</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="leadership.html">Leadership</a>
+  </nav>
+
+  <header>Ariv Vaidya</header>
+
+  <div class="container">
+    <!-- Class President Section -->
+    <div class="class-president">
+      <h2>Class President</h2>
+      <div class="class-president-content">
+        <img src="images/president.jpg" alt="Class President - Ariv Vaidya" />
+        <div class="class-president-text">
+          <p>
+            As Class President, I have had the privilege to represent and advocate for my peers by organizing events, fostering community, and facilitating communication between students and faculty. This role has sharpened my leadership, teamwork, and public speaking skills while allowing me to create positive change within my school.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Leadership Positions -->
+    <div class="other-leadership">
+      <h2>Other Leadership Roles</h2>
+      <ul>
+        <li>Founder of Current Events Club and Head of Bulldog Inquirer</li>
+        <li>MIT Science Ambassador</li>
+        <li>Peer Mentor</li>
+        <li>Open House Representative</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 Ariv Vaidya. All rights reserved.</footer>
+</body>
+</html>

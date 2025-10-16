@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume — Ariv Vaidya</title>
+  <meta name="description" content="Resume of Ariv Vaidya." />
+  <meta property="og:title" content="Resume — Ariv Vaidya" />
+  <meta property="og:description" content="Student researcher, leader, guitarist, and volunteer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/profile1.jpg" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Perf: hint the browser about images we’ll show ASAP -->
+  <link rel="preload" as="image" href="images/profile1.jpg" />
+  <link rel="preload" as="image" href="assets/resume_page1.png" />
+  <!-- Page 2 can lazy-load but a preload helps if users scroll quickly -->
+  <link rel="preload" as="image" href="assets/resume_page2.png" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","system-ui","-apple-system","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
+          colors: { brand: { DEFAULT: "#2563eb", dark: "#1d4ed8", soft: "#60a5fa" } },
+          boxShadow: { soft: "0 12px 30px rgba(0,0,0,0.08)" }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    :focus { outline: none; }
+
+    /* Header always above */
+    header.site-header { position: sticky; top: 0; z-index: 2147483647; }
+
+    /* Dotted background (matches Home/Research) */
+    .bg-dots {
+      background-color: #f8fafc;
+      background-image:
+        radial-gradient(#e2e8f0 1px, transparent 1px),
+        radial-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 24px 24px, 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    /* Lightbox (dialog) */
+    dialog.lightbox::backdrop { background: rgba(0,0,0,.6); backdrop-filter: blur(2px); }
+    dialog.lightbox { border: 0; border-radius: 16px; padding: 0; max-width: 92vw; }
+    .lb-body { position: relative; background: #0b1220; }
+    .lb-img { display: block; max-height: 88vh; max-width: 92vw; object-fit: contain; margin: 0 auto; }
+    .lb-topbar {
+      position: absolute; inset: 0 0 auto 0; display: flex; justify-content: space-between; align-items: center;
+      padding: .5rem .75rem; background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0));
+      color: white; font-weight: 600;
+    }
+    .lb-btn { display: inline-flex; align-items: center; gap:.5rem; padding:.5rem .75rem; border-radius: .75rem; background: rgba(255,255,255,.12); color:white; }
+    .lb-btn:hover { background: rgba(255,255,255,.2); }
+    .lb-close { position: absolute; top: .75rem; right: .75rem; }
+
+    /* Print: pages stacked edge-to-edge */
+    @media print {
+      header, .actions, footer, .page-intro { display: none !important; }
+      .print-stack img { width: 100% !important; height: auto !important; border: 0 !important; box-shadow: none !important; }
+      .print-stack { display: block !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-brand/15">
+
+  <!-- Header -->
+  <header class="site-header backdrop-blur bg-white/85 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-18 py-2">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/profile1.jpg" alt="Ariv headshot" class="w-11 h-11 rounded-full object-cover" style="object-position:center 20%;"
+               loading="lazy" decoding="async" />
+          <span class="font-semibold tracking-tight text-xl">Ariv Vaidya</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
+          <a class="hover:text-brand" href="index.html">Home</a>
+          <a class="hover:text-brand" href="research.html">Research</a>
+          <a class="hover:text-brand" href="resume.html">Resume</a>
+          <a class="hover:text-brand" href="hobbies.html">Hobbies</a>
+          <a class="hover:text-brand" href="coursework.html">School Coursework</a>
+          <a class="hover:text-brand" href="contact.html">Contact</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden p-3 rounded-lg hover:bg-slate-100" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+            <path d="M3.75 5.25h16.5v1.5H3.75zM3.75 11.25h16.5v1.5H3.75zM3.75 17.25h16.5v1.5H3.75z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-2 gap-4 text-base font-medium">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- DOTTED: Title + actions -->
+  <section class="page-intro bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <h1 class="text-4xl font-bold">Resume</h1>
+      <p class="mt-3 max-w-2xl text-slate-700"></p>
+      <div class="actions mt-6 flex flex-wrap gap-3">
+        <button id="printBtn" class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h12v6H6z"/><path d="M6 14h12v8H6z"/><path d="M4 8h16a2 2 0 0 1 2 2v6h-4v-4H6v4H2v-6a2 2 0 0 1 2-2z"/></svg>
+          Print / Save as PDF
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAIN: Grid of resume pages (1–2 only) -->
+  <section class="py-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Page 1 -->
+        <a href="assets/resume_page1.png" class="group block rounded-2xl border border-slate-200 bg-white p-3 shadow-soft hover:shadow-lg transition"
+           data-lb="assets/resume_page1.png" aria-label="Open Resume page 1 in viewer">
+          <img
+            src="assets/resume_page1.png"
+            alt="Resume page 1"
+            class="w-full h-auto rounded-lg"
+            fetchpriority="high"
+            decoding="async"
+            sizes="(min-width: 768px) 50vw, 100vw" />
+          <div class="mt-3 text-sm text-slate-600">Page 1</div>
+        </a>
+        <!-- Page 2 -->
+        <a href="assets/resume_page2.png" class="group block rounded-2xl border border-slate-200 bg-white p-3 shadow-soft hover:shadow-lg transition"
+           data-lb="assets/resume_page2.png" aria-label="Open Resume page 2 in viewer">
+          <img
+            src="assets/resume_page2.png"
+            alt="Resume page 2"
+            class="w-full h-auto rounded-lg"
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 768px) 50vw, 100vw" />
+          <div class="mt-3 text-sm text-slate-600">Page 2</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-slate-600">
+      <span>© <span id="year"></span> Ariv Vaidya</span>
+      <nav class="flex gap-4">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Hidden print stack (for clean PDF) -->
+  <section class="print-stack hidden" aria-hidden="true">
+    <img src="assets/resume_page1.png" alt="Resume page 1">
+    <img src="assets/resume_page2.png" alt="Resume page 2">
+  </section>
+
+  <!-- Lightbox dialog -->
+  <dialog id="lightbox" class="lightbox" aria-label="Resume image viewer">
+    <div class="lb-body">
+      <div class="lb-topbar">
+        <span id="lbTitle">Resume page</span>
+      </div>
+      <button id="lbClose" class="lb-btn lb-close" aria-label="Close">✕</button>
+      <img id="lbImg" class="lb-img" src="" alt="Resume page preview" />
+    </div>
+  </dialog>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Print / Save as PDF
+    document.getElementById('printBtn')?.addEventListener('click', () => {
+      document.querySelector('.print-stack')?.classList.remove('hidden');
+      window.print();
+      setTimeout(() => document.querySelector('.print-stack')?.classList.add('hidden'), 500);
+    });
+
+    // Lightbox preview
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbClose = document.getElementById('lbClose');
+
+    document.querySelectorAll('[data-lb]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const src = link.getAttribute('data-lb');
+        const label = link.querySelector('.text-slate-600')?.textContent || 'Resume page';
+        lbImg.src = src;
+        lbTitle.textContent = label;
+        if (typeof lb.showModal === 'function') {
+          lb.showModal();
+        } else {
+          window.open(src, '_blank');
+        }
+      });
+    });
+
+    lbClose?.addEventListener('click', () => lb.close());
+    lb?.addEventListener('click', (e) => {
+      const rect = lb.querySelector('.lb-body').getBoundingClientRect();
+      if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+        lb.close();
+      }
+    });
+  </script>
+</body>
+</html>

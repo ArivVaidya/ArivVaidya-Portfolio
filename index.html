@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ariv Vaidya — Home</title>
+  <meta name="description" content="Home — portfolio of Ariv Vaidya: research, resume, hobbies, and school coursework." />
+  <meta property="og:title" content="Ariv Vaidya — Home" />
+  <meta property="og:description" content="Student researcher, leader, guitarist, and volunteer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/profile1.jpg" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Small perf win: preload hero image -->
+  <link rel="preload" as="image" href="images/profile1.jpg" imagesrcset="images/profile1.jpg 1x" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","system-ui","-apple-system","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
+          colors: { brand: { DEFAULT:"#2563eb", dark:"#1d4ed8", soft:"#60a5fa" } },
+          boxShadow: { soft:"0 12px 30px rgba(0,0,0,0.08)", float:"0 16px 40px rgba(37,99,235,0.18)" }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    :focus { outline: none; }
+
+    body {
+      background-color: #f8fafc;
+      background-image: radial-gradient(circle, rgba(15,23,42,0.06) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    .on-white { background: #ffffffcc; }
+
+    /* Clean, integrated video frame (no thumbnail) */
+    .video-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;      /* subtle to match cards */
+      overflow: hidden;
+      background: #000;                /* hides any flash while loading */
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    }
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-brand/15">
+
+  <!-- Header (sizes unified with other pages) -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-18 py-2">
+        <a href="index.html" class="flex items-center gap-3">
+          <!-- Keep this one eager since it’s above the fold -->
+          <img src="images/profile1.jpg" alt="Ariv headshot"
+               class="w-11 h-11 rounded-full object-cover" style="object-position:center 20%;" />
+          <span class="font-semibold tracking-tight text-xl">Ariv Vaidya</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
+          <a class="hover:text-brand" href="index.html">Home</a>
+          <a class="hover:text-brand" href="research.html">Research</a>
+          <a class="hover:text-brand" href="resume.html">Resume</a>
+          <a class="hover:text-brand" href="hobbies.html">Hobbies</a>
+          <a class="hover:text-brand" href="coursework.html">School Coursework</a>
+          <a class="hover:text-brand" href="contact.html">Contact</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden p-3 rounded-lg hover:bg-slate-100" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+            <path d="M3.75 5.25h16.5v1.5H3.75zM3.75 11.25h16.5v1.5H3.75zM3.75 17.25h16.5v1.5H3.75z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-2 gap-4 text-base font-medium">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-18">
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight">Hi, I’m <span class="text-brand">Ariv</span>.</h1>
+      <p class="mt-3 max-w-2xl text-slate-700 text-base">
+        I’m a senior at the British International School of Boston. This site highlights my research, academics, music, and leadership experiences.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="research.html" class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark">See Research</a>
+        <a href="resume.html" class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-white border border-slate-200 hover:bg-slate-100">Resume</a>
+      </div>
+
+      <!-- Integrated intro video (clean, no thumbnail) -->
+      <div class="video-embed mt-8">
+        <iframe
+          src="https://drive.google.com/file/d/1zuceU7NNTDk--0MhD57Q6UYYw-_ph0Li/preview"
+          allow="autoplay; fullscreen"
+          loading="lazy"
+          title="Intro video"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research" class="py-14 on-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl sm:text-3xl font-bold">Research</h2>
+        <a href="research.html" class="text-brand hover:underline">See research →</a>
+      </div>
+
+      <!-- Khurana Lab context -->
+      <p class="mt-3 max-w-3xl text-slate-700 text-base">
+        At the Khurana Lab (Harvard Medical School &amp; Brigham and Women’s Hospital), I worked on neurodegeneration projects. I helped curate and analyze data from the Harvard Biomarker Study, a longitudinal Parkinson’s cohort. We identified subtypes of Parkinson’s by progression rate and used machine learning to predict these subtypes from baseline features. I also assisted with lab assays and shadowed neurology cases.
+      </p>
+
+      <div class="mt-8 grid lg:grid-cols-2 gap-8">
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold">Report</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            A write-up of the approach, methods, and results used to analyze and predict patient outcomes. Presented at the World Pre-Health Conference and the Massachusetts State Science &amp; Engineering Fair.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark"
+               href="assets/Report.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark"
+               href="assets/Report.pdf" download>Download</a>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold">Science Fair Poster</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            A one-page visual summary of the problem, approach, and key findings.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark"
+               href="assets/Science_Fair_Poster.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark"
+               href="assets/Science_Fair_Poster.pdf" download>Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl sm:text-3xl font-bold">Resume</h2>
+        <a href="resume.html" class="text-brand hover:underline">See full resume →</a>
+      </div>
+      <div class="mt-6 grid grid-cols-2 gap-4">
+        <a href="resume.html">
+          <img src="assets/resume_page1.png" alt="Resume page 1"
+               class="rounded-lg border border-slate-200 shadow-soft hover:shadow-lg transition"
+               loading="lazy" decoding="async" />
+        </a>
+        <a href="resume.html">
+          <img src="assets/resume_page2.png" alt="Resume page 2"
+               class="rounded-lg border border-slate-200 shadow-soft hover:shadow-lg transition"
+               loading="lazy" decoding="async" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies + Leadership + Service -->
+  <section id="hobbies" class="py-14 on-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl sm:text-3xl font-bold">Hobbies, Leadership &amp; Service</h2>
+        <a href="hobbies.html" class="text-brand hover:underline">See more →</a>
+      </div>
+      <p class="mt-3 max-w-3xl text-slate-700 text-base">
+        Outside academics, I focus on classical guitar, varsity tennis, school leadership, and community service.
+      </p>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-slate-900">Classical Guitar</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Nine years of study with 15+ recitals and volunteer performances at senior centers, bookstores, and community events.
+          </p>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-slate-900">Varsity Tennis</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Captain of the school team. Organized practices, set match strategy, and helped lead the team to a championship.
+          </p>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-slate-900">Class President</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Represent the student body, run events, and work with faculty to keep communication clear and inclusive.
+          </p>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-slate-900">Current Events &amp; Newspaper</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Founded the Current Events Club and published 50+ articles on environment, politics, technology, and economics.
+            Now Editor-in-Chief of the Bulldog Inquirer—manage schedules, edit copy, and lead the team.
+          </p>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-slate-900">Community Service</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Teaching assistant at Alexander Twilight Academy (6th-grade math) supporting students in the Boston area, and
+            volunteer with Volley Against Violence—using tennis to connect youth and police officers.
+          </p>
+        </article>
+
+        <!-- NEW: Peer Mentor -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-slate-900">Peer Mentor</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Support younger students as they transition into high school—planning homework, sharing study tips and resources,
+            and checking in on progress.
+          </p>
+        </article>
+
+        <!-- NEW: Admissions Representative -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-slate-900">Admissions Representative</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Represent BISB during open houses and tours. Welcome visiting families, answer questions, and help new students
+            get oriented on their first day.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coursework (EE + IAs only, all blue buttons) -->
+  <section id="coursework" class="py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl sm:text-3xl font-bold">School Coursework (IB)</h2>
+        <a href="coursework.html" class="text-brand hover:underline">See coursework →</a>
+      </div>
+      <p class="mt-3 max-w-3xl text-slate-700 text-base">
+        IB subjects: HL Biology, HL Chemistry, HL Math AI; SL Environmental Systems &amp; Societies, Spanish, and English Lang/Lit. The program includes substantial written coursework, which I’ve linked below.
+      </p>
+
+      <div class="mt-8 grid sm:grid-cols-2 gap-8">
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold">Extended Essay (Biology)</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            ~4,000-word independent paper. Building on work from the Khurana Lab, I examined how markers of Parkinson’s progression change over time.
+          </p>
+          <a href="coursework.html#ee"
+             class="mt-4 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark">Open</a>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold">Internal Assessments</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            ~3,000-word investigations required for several subjects. I’ve included my Biology, Chemistry, and ESS IAs; the Math IA is in progress.
+          </p>
+          <a href="coursework.html#ias"
+             class="mt-4 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark">View IAs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-slate-600">
+      <span>© <span id="year"></span> Ariv Vaidya</span>
+      <nav class="flex gap-4">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    document.getElementById('year')?.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

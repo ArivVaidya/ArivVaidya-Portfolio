@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research — Ariv Vaidya</title>
+  <meta name="description" content="Research projects: Mediar Therapeutics RNA-seq dashboard and Harvard Khurana Lab work." />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Perf: quick DNS + TLS to Shiny -->
+  <link rel="preconnect" href="https://arivvaidya.shinyapps.io" crossorigin />
+  <link rel="dns-prefetch" href="//arivvaidya.shinyapps.io" />
+  <!-- Small paint win: preload avatar used in header -->
+  <link rel="preload" as="image" href="images/profile1.jpg" imagesrcset="images/profile1.jpg 1x" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","system-ui","-apple-system","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
+          colors: { brand: { DEFAULT: "#2563eb", dark: "#1d4ed8", soft: "#60a5fa" } },
+          boxShadow: { soft: "0 12px 30px rgba(0,0,0,0.08)" }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    :focus { outline: none; }
+
+    header.site-header { position: sticky; top: 0; z-index: 9999; }
+    #mobileNav { z-index: 10000; position: relative; }
+
+    .bg-dots {
+      background-color: #f8fafc;
+      background-image:
+        radial-gradient(#e2e8f0 1px, transparent 1px),
+        radial-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 24px 24px, 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    /* Embed */
+    .embed {
+      position: relative;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      overflow: hidden;
+      background: #ffffff;
+      height: 70vh;
+      min-height: 420px;
+    }
+    .embed iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+      opacity: 0;
+      transition: opacity .4s ease;
+      z-index: 0;
+      background: #fff;
+    }
+    .embed.ready iframe { opacity: 1; }
+    .embed.ready .loader { opacity: 0; pointer-events: none; }
+
+    /* Loader covers iframe so no Shiny splash peeks through */
+    .loader {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: .8rem;
+      background: #f8fafc;
+      transition: opacity .6s ease;
+      text-align: center;
+      padding: 1rem;
+    }
+    .bar {
+      position: relative;
+      width: min(680px, 80%);
+      height: 10px;
+      border-radius: 9999px;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+    .bar-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg,#60a5fa,#2563eb);
+      transition: width 0.2s ease;
+    }
+    .percent-text { font-size: 0.9rem; color: #475569; }
+    .status-text { font-size: .9rem; color: #64748b; }
+
+    /* Helper row */
+    .helper {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      color: #64748b;
+      font-size: .85rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .helper button {
+      padding: .4rem .7rem;
+      border-radius: .5rem;
+      border: 1px solid #cbd5e1;
+      background: white;
+    }
+    .helper button:hover { background: #f1f5f9; }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-brand/15">
+
+  <!-- Header -->
+  <header class="site-header backdrop-blur bg-white/85 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-18 py-2">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/profile1.jpg" alt="Ariv headshot" class="w-11 h-11 rounded-full object-cover" style="object-position:center 20%;" />
+          <span class="font-semibold tracking-tight text-xl">Ariv Vaidya</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
+          <a class="hover:text-brand" href="index.html">Home</a>
+          <a class="hover:text-brand" href="research.html">Research</a>
+          <a class="hover:text-brand" href="resume.html">Resume</a>
+          <a class="hover:text-brand" href="hobbies.html">Hobbies</a>
+          <a class="hover:text-brand" href="coursework.html">School Coursework</a>
+          <a class="hover:text-brand" href="contact.html">Contact</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden p-3 rounded-lg hover:bg-slate-100" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+            <path d="M3.75 5.25h16.5v1.5H3.75zM3.75 11.25h16.5v1.5H3.75zM3.75 17.25h16.5v1.5H3.75z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-2 gap-4 text-base font-medium">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- DOTTED: Page title -->
+  <section class="relative bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <h1 class="text-4xl font-bold">Research</h1>
+      <p class="mt-3 max-w-2xl text-slate-700">
+        An RNA-seq dashboard I built during an internship at Mediar Therapeutics, and my work at the Khurana Lab.
+      </p>
+    </div>
+  </section>
+
+  <!-- PLAIN: Mediar -->
+  <section id="mediar" class="py-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-start gap-8">
+        <div class="flex-1">
+          <h2 class="text-2xl sm:text-3xl font-semibold">Mediar Therapeutics — RNA-seq Dashboard</h2>
+          <p class="mt-3 text-slate-700">
+            Mediar Therapeutics is a biotech developing anti-fibrotic therapies. I built a web app (R/flexdashboard &amp; Shiny) that lets scientists explore and visualize RNA-seq data: filter genes, compare conditions, view volcano/heatmap/boxplot outputs, and export figures for slide-ready use. (The demo ships with dummy data; you can also import your own.)
+          </p>
+
+          <!-- Clear “how to start” note -->
+          <div class="mt-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+            <div class="text-sm leading-relaxed text-slate-700">
+              <span class="inline-block rounded-md bg-brand/10 px-2 py-0.5 text-brand text-xs font-semibold mr-2">Tip</span>
+              <span class="font-semibold text-slate-900">To get started inside the app, click the <span class="underline">Data Analysis</span> tab.</span>
+            </div>
+          </div>
+
+          <ul class="mt-4 text-slate-700 list-disc list-inside space-y-1">
+            <li>Upload or select datasets (example uses dummy data).</li>
+            <li>Interactive differential expression tables with search and significance cutoffs.</li>
+            <li>Quick plots (volcano, heatmap, boxplot) with one-click export.</li>
+          </ul>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#app" class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark">View Live App</a>
+            <a href="https://arivvaidya.shinyapps.io/rna-seq-dashboard/" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-white border border-slate-200 hover:bg-slate-100">Open in new tab</a>
+          </div>
+        </div>
+        <aside class="w-full lg:w-80 rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+          <h3 class="font-semibold">Specifics</h3>
+          <dl class="mt-3 text-sm text-slate-700 grid grid-cols-1 gap-2">
+            <div><dt class="inline text-slate-500">Stack:</dt> <dd class="inline">R, flexdashboard, Shiny, tidyverse</dd></div>
+            <div><dt class="inline text-slate-500">Role:</dt> <dd class="inline">Data Science Intern</dd></div>
+            <div><dt class="inline text-slate-500">Focus:</dt> <dd class="inline">Exploratory analysis &amp; reporting</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOTTED: Live app embed with progress bar & smart reveal -->
+  <section class="py-6 bg-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h3 id="app" class="text-xl font-semibold">Live Demo</h3>
+      <p class="mt-2 text-sm text-slate-600">
+        Loads in-page. It may take a minute. <strong>Once it opens, click the <span class="underline">Data Analysis</span> tab to begin.</strong>
+      </p>
+
+      <div class="mt-4 embed" id="appEmbed">
+        <!-- Loader (fully covers iframe so Shiny splash never shows) -->
+        <div class="loader" id="loader" aria-live="polite">
+          <div class="bar" aria-hidden="true">
+            <div class="bar-fill" id="barFill"></div>
+          </div>
+          <div class="percent-text" id="percentText">0%</div>
+          <div class="status-text" id="statusText">Loading app…</div>
+          <div class="helper">
+            <span>If it seems stuck, you can</span>
+            <button id="forceShowBtn" type="button">Show App Now</button>
+          </div>
+        </div>
+
+        <!-- iframe -->
+        <iframe id="appFrame"
+                src="https://arivvaidya.shinyapps.io/rna-seq-dashboard/"
+                title="RNA-seq Dashboard (Shiny)"
+                allow="fullscreen"
+                loading="eager"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Khurana Lab -->
+  <section id="khurana" class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Khurana Lab — Harvard Medical School</h2>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        At the Khurana Lab I worked on neurodegeneration projects. Below are a report and a poster from our work using clinical and biomarker data to predict outcomes in Parkinson’s disease.
+      </p>
+      <div class="mt-8 grid lg:grid-cols-2 gap-8">
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold">Internship Report</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            A write-up of the approach, methods, and results used to analyze and predict patient outcomes. Presented at the World Pre-Health Conference and the Massachusetts State Science &amp; Engineering Fair.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark"
+               href="assets/Report.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark"
+               href="assets/Report.pdf" download>Download</a>
+          </div>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 class="font-semibold">Science Fair Poster</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            A one-page visual summary of the problem, approach, and key findings.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark"
+               href="assets/Science_Fair_Poster.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white hover:bg-brand-dark"
+               href="assets/Science_Fair_Poster.pdf" download>Download</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-slate-600">
+      <span>© <span id="year"></span> Ariv Vaidya</span>
+      <nav class="flex gap-4">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resume.html">Resume</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="coursework.html">School Coursework</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Progress logic: keep overlay until Shiny is likely ready
+    const barFill = document.getElementById('barFill');
+    const percentText = document.getElementById('percentText');
+    const statusText = document.getElementById('statusText');
+    const embed = document.getElementById('appEmbed');
+    const iframe = document.getElementById('appFrame');
+    const forceShowBtn = document.getElementById('forceShowBtn');
+
+    // Simulated progress, capped at 95% until we decide to reveal
+    let progress = 0;
+    const tick = () => {
+      progress += Math.random() * 5;
+      if (progress >= 95) {
+        progress = 95;
+        statusText.textContent = "Almost done — first load can take ~30 seconds.";
+      }
+      barFill.style.width = progress + '%';
+      percentText.textContent = Math.round(progress) + '%';
+    };
+    const timer = setInterval(tick, 200);
+
+    // Allow manual reveal if something stalls
+    forceShowBtn.addEventListener('click', () => {
+      statusText.textContent = "Opening now…";
+      finishAndReveal(200);
+    });
+
+    // When iframe 'load' fires, give Shiny time to clear its own splash,
+    // then complete to 100 and reveal. (We can't read inside the iframe due to cross-origin.)
+    const MIN_VISIBLE_MS = 900;    // keep bar visible briefly so it looks intentional
+    const SETTLE_MS      = 3000;   // buffer to let Shiny finish removing its "Please wait..."
+    const startTs = Date.now();
+
+    iframe.addEventListener('load', () => {
+      const elapsed = Date.now() - startTs;
+      const waitMore = Math.max(0, MIN_VISIBLE_MS - elapsed);
+
+      // Show "Almost done..." message if not already set
+      if (progress < 95) {
+        progress = 95;
+        barFill.style.width = '95%';
+        percentText.textContent = '95%';
+        statusText.textContent = "Almost done — first load can take ~30 seconds.";
+      }
+
+      // After a short minimum display + settle buffer, reveal
+      setTimeout(() => finishAndReveal(SETTLE_MS), waitMore);
+    });
+
+    function finishAndReveal(extraDelayMs = 0) {
+      clearInterval(timer);
+
+      // Smoothly go from current progress to 100%
+      let finish = progress;
+      const finisher = setInterval(() => {
+        finish += 2;
+        if (finish >= 100) {
+          finish = 100;
+          clearInterval(finisher);
+          barFill.style.width = '100%';
+          percentText.textContent = '100%';
+          statusText.textContent = "Ready.";
+          setTimeout(() => embed.classList.add('ready'), extraDelayMs);
+        } else {
+          barFill.style.width = finish + '%';
+          percentText.textContent = Math.round(finish) + '%';
+        }
+      }, 60);
+    }
+  </script>
+</body>
+</html>
